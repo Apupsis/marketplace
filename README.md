@@ -25,12 +25,30 @@ demo-claude-marketplace/
 │   │   ├── agents/               # Subagent definitions (data-engineer, pipeline-architect)
 │   │   ├── commands/             # Slash commands (ingest, transform)
 │   │   └── skills/               # Skills organized by domain (sql/, etl/)
-│   └── api-guardian/
+│   ├── api-guardian/
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   ├── agents/               # Subagent definitions (security-auditor, api-reviewer)
+│   │   ├── commands/             # Slash commands (audit, scan)
+│   │   └── skills/               # Skills organized by domain (openapi/, security/)
+│   ├── prompt-craft/
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   ├── agents/               # Subagent definitions (prompt-engineer, prompt-evaluator)
+│   │   ├── commands/             # Slash commands (craft, optimize)
+│   │   └── skills/               # Skills organized by domain (prompting/, few-shot/)
+│   ├── code-quality/
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   ├── agents/               # Subagent definitions (code-reviewer, refactor-guide)
+│   │   ├── commands/             # Slash commands (review, refactor)
+│   │   └── skills/               # Skills organized by domain (review/, refactoring/)
+│   └── dev-rules/
 │       ├── .claude-plugin/
 │       │   └── plugin.json
-│       ├── agents/               # Subagent definitions (security-auditor, api-reviewer)
-│       ├── commands/             # Slash commands (audit, scan)
-│       └── skills/               # Skills organized by domain (openapi/, security/)
+│       ├── agents/               # Subagent definitions (rules-enforcer, standards-advisor)
+│       ├── commands/             # Slash commands (check, define)
+│       └── skills/               # Skills organized by domain (standards/, ai-guidelines/)
 ├── CLAUDE.md                     # Project-level memory and conventions
 └── README.md
 ```
@@ -58,6 +76,21 @@ Here is the manifest from this demo:
       "name": "api-guardian",
       "source": "./claude-plugins/api-guardian",
       "description": "Adds API security auditing agents, commands, and skills for governance and OWASP compliance."
+    },
+    {
+      "name": "prompt-craft",
+      "source": "./claude-plugins/prompt-craft",
+      "description": "Adds AI prompt engineering agents, commands, and skills for designing, optimizing, and evaluating prompts."
+    },
+    {
+      "name": "code-quality",
+      "source": "./claude-plugins/code-quality",
+      "description": "Adds code review and refactoring agents, commands, and skills for maintaining high code quality standards."
+    },
+    {
+      "name": "dev-rules",
+      "source": "./claude-plugins/dev-rules",
+      "description": "Adds development rules, coding standards, and AI behavior guidelines agents, commands, and skills."
     }
   ]
 }
@@ -108,6 +141,30 @@ API security and governance tooling for auditing, validation, and standards enfo
 - **Commands:** `/api-guardian:audit` and `/api-guardian:scan` -- slash commands for security operations
 - **Skills:** `openapi/` and `security/` -- domain expertise for OpenAPI validation and OWASP compliance
 
+### prompt-craft
+
+AI prompt engineering tooling for designing, optimizing, and evaluating prompts.
+
+- **Agents:** `prompt-engineer` and `prompt-evaluator` -- subagents for prompt design and quality assessment
+- **Commands:** `/prompt-craft:craft` and `/prompt-craft:optimize` -- slash commands for creating and improving prompts
+- **Skills:** `prompting/` and `few-shot/` -- domain expertise for prompt patterns and example selection
+
+### code-quality
+
+Code review and refactoring tooling for maintaining high quality standards across the codebase.
+
+- **Agents:** `code-reviewer` and `refactor-guide` -- subagents for review and safe refactoring
+- **Commands:** `/code-quality:review` and `/code-quality:refactor` -- slash commands for code review and refactoring
+- **Skills:** `review/` and `refactoring/` -- domain expertise for code analysis and transformation techniques
+
+### dev-rules
+
+Development rules and coding standards tooling for defining, enforcing, and evolving team guidelines including AI usage policies.
+
+- **Agents:** `rules-enforcer` and `standards-advisor` -- subagents for compliance checking and standards design
+- **Commands:** `/dev-rules:check` and `/dev-rules:define` -- slash commands for validating and creating coding rules
+- **Skills:** `standards/` and `ai-guidelines/` -- domain expertise for coding standards and responsible AI usage policies
+
 ## Plugins vs. Project Configuration
 
 Claude Code has two layers that work together. Understanding which concerns belong where is key to a clean setup.
@@ -141,8 +198,12 @@ The split is straightforward: plugins are for reusable capabilities you distribu
 git clone <repo-url> demo-claude-marketplace
 cd demo-claude-marketplace
 
-# Launch Claude Code with the marketplace loaded locally
-claude --plugin-dir ./claude-plugins/data-toolkit --plugin-dir ./claude-plugins/api-guardian
+# Launch Claude Code with all plugins loaded locally
+claude --plugin-dir ./claude-plugins/data-toolkit \
+       --plugin-dir ./claude-plugins/api-guardian \
+       --plugin-dir ./claude-plugins/prompt-craft \
+       --plugin-dir ./claude-plugins/code-quality \
+       --plugin-dir ./claude-plugins/dev-rules
 ```
 
 ### Use as a marketplace

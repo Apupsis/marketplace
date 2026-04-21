@@ -1,0 +1,5 @@
+{
+  "name": "code-quality",
+  "description": "Adds code review and refactoring agents, commands, and skills for maintaining high code quality standards.",
+  "version": "0.1.0"
+}

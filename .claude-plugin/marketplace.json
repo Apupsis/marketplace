@@ -14,6 +14,21 @@
       "name": "api-guardian",
       "source": "./claude-plugins/api-guardian",
       "description": "Adds API security auditing agents, commands, and skills for governance and OWASP compliance."
+    },
+    {
+      "name": "prompt-craft",
+      "source": "./claude-plugins/prompt-craft",
+      "description": "Adds AI prompt engineering agents, commands, and skills for designing, optimizing, and evaluating prompts."
+    },
+    {
+      "name": "code-quality",
+      "source": "./claude-plugins/code-quality",
+      "description": "Adds code review and refactoring agents, commands, and skills for maintaining high code quality standards."
+    },
+    {
+      "name": "dev-rules",
+      "source": "./claude-plugins/dev-rules",
+      "description": "Adds development rules, coding standards, and AI behavior guidelines agents, commands, and skills."
     }
   ]
 }
