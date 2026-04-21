@@ -1,0 +1,5 @@
+{
+  "name": "data-toolkit",
+  "description": "Adds data engineering agents, commands, and skills for ETL pipeline development.",
+  "version": "0.1.0"
+}

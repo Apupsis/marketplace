@@ -1,0 +1,19 @@
+{
+  "name": "demo-marketplace",
+  "owner": {
+    "name": "Martin Hrášek",
+    "email": "martin@hrasek.email"
+  },
+  "plugins": [
+    {
+      "name": "data-toolkit",
+      "source": "./claude-plugins/data-toolkit",
+      "description": "Adds data engineering agents, commands, and skills for ETL pipeline development."
+    },
+    {
+      "name": "api-guardian",
+      "source": "./claude-plugins/api-guardian",
+      "description": "Adds API security auditing agents, commands, and skills for governance and OWASP compliance."
+    }
+  ]
+}

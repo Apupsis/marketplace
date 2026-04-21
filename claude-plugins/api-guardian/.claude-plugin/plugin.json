@@ -1,0 +1,5 @@
+{
+  "name": "api-guardian",
+  "description": "Adds API security and governance agents, commands, and skills.",
+  "version": "0.1.0"
+}
